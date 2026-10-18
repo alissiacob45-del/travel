@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUREA | Viaggi d'Autore & Esperienze Esclusive</title>
+    
+    <!-- Meta tag SEO e Social -->
+    <meta name="description" content="AUREA cura itinerari su misura ed esperienze di viaggio esclusive nei luoghi più affascinanti del mondo.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Cormorant Garamond (Serif di lusso) & Plus Jakarta Sans (Sans-serif moderno) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Configurazione Personalizzata Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        aurea: {
+                            sand: '#F7F4EE',        // Sfondo chiaro, écru caldo
+                            canvas: '#FAF8F5',      // Sfondo carte
+                            cream: '#EFE9DE',       // Bordi e sfumature tenui
+                            bronze: '#C5A059',      // Oro caldo / ottone satinato
+                            bronzeDark: '#A6823F',  // Hover oro
+                            umber: '#1E1B18',       // Nero caldo / terra d'ombra scuro
+                            charcoal: '#2D2926',    // Testo principale
+                            muted: '#6E675F',       // Testo secondario
+                            forest: '#26382F',      // Verde salvia scuro d'accento
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Stile personalizzato per la scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F7F4EE;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D8CEBE;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C5A059;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-aurea-sand text-aurea-charcoal font-sans antialiased selection:bg-aurea-bronze selection:text-white">
+
+    <!-- ========================================================
+         1. NAVBAR SUPERIORE ELEGANTE
+    ======================================================== -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-40 transition-all duration-300 bg-aurea-sand/90 backdrop-blur-md border-b border-aurea-cream/80">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            
+            <!-- Logo Brand -->
+            <a href="#" class="flex flex-col items-start group">
+                <span class="font-serif text-2xl tracking-[0.25em] font-semibold text-aurea-umber uppercase group-hover:text-aurea-bronze transition-colors">
+                    AUREA
+                </span>
+                <span class="text-[9px] uppercase tracking-[0.3em] text-aurea-muted -mt-1 font-medium">Viaggi d'Autore</span>
+            </a>
+
+            <!-- Link di Navigazione Desktop -->
+            <nav class="hidden lg:flex items-center space-x-10 text-xs font-semibold uppercase tracking-[0.18em] text-aurea-charcoal/80">
+                <a href="#destinazioni" class="hover:text-aurea-bronze transition-colors">Destinazioni</a>
+                <a href="#esperienze" class="hover:text-aurea-bronze transition-colors">Esperienze</a>
+                <a href="#filosofia" class="hover:text-aurea-bronze transition-colors">Filosofia</a>
+                <a href="#recensioni" class="hover:text-aurea-bronze transition-colors">Diario di Viaggio</a>
+                <a href="#su-misura" class="hover:text-aurea-bronze transition-colors">Su Misura</a>
+            </nav>
+
+            <!-- Strumenti Navigazione & CTA -->
+            <div class="hidden sm:flex items-center space-x-6">
+                <!-- Selettore Valuta / Lingua rapido -->
+                <div class="flex items-center text-xs tracking-wider text-aurea-muted font-medium border-r border-aurea-cream pr-4 space-x-2">
+                    <span class="text-aurea-umber font-semibold cursor-pointer">IT</span>
+                    <span>/</span>
+                    <span class="hover:text-aurea-umber cursor-pointer transition-colors">EUR (€)</span>
+                </div>
+
+                <a href="#su-misura" class="inline-flex items-center justify-center px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-[0.15em] bg-aurea-umber text-aurea-sand hover:bg-aurea-bronze transition-all duration-300 shadow-sm hover:shadow-md">
+                    Pianifica Viaggio
+                </a>
+            </div>
+
+            <!-- Hamburger Button per Mobile -->
+            <button id="mobileMenuBtn" aria-label="Apri menu" class="lg:hidden p-2 rounded-lg text-aurea-umber hover:bg-aurea-cream/50 transition">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Menu Mobile a Scomparsa -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-aurea-sand border-b border-aurea-cream px-6 py-6 shadow-xl transition-all">
+            <nav class="flex flex-col space-y-4 text-sm font-medium tracking-wider uppercase text-aurea-charcoal">
+                <a href="#destinazioni" class="mobile-link py-2 border-b border-aurea-cream/50 hover:text-aurea-bronze">Destinazioni</a>
+                <a href="#esperienze" class="mobile-link py-2 border-b border-aurea-cream/50 hover:text-aurea-bronze">Esperienze</a>
+                <a href="#filosofia" class="mobile-link py-2 border-b border-aurea-cream/50 hover:text-aurea-bronze">Filosofia</a>
+                <a href="#recensioni" class="mobile-link py-2 border-b border-aurea-cream/50 hover:text-aurea-bronze">Diario di Viaggio</a>
+                <a href="#su-misura" class="mobile-link py-2 border-b border-aurea-cream/50 hover:text-aurea-bronze">Su Misura</a>
+            </nav>
+            <div class="pt-6">
+                <a href="#su-misura" class="mobile-link block w-full text-center py-3 rounded-full text-xs font-semibold uppercase tracking-widest bg-aurea-umber text-white hover:bg-aurea-bronze transition">
+                    Pianifica Viaggio
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- ========================================================
+             2. HERO SECTION CON CLAIM POETICO & FILTRO RAPIDO
+        ======================================================== -->
+        <section class="relative min-h-[90vh] flex flex-col justify-center items-center text-center px-6 py-20 overflow-hidden">
+            <!-- Sfondo con Immagine Atmosferica e Overlay Sofisticato -->
+            <div class="absolute inset-0 -z-10 overflow-hidden">
+                <img 
+                    src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80" 
+                    alt="Paesaggio paradisiaco" 
+                    class="w-full h-full object-cover object-center filter brightness-[0.88] contrast-[1.05] scale-105 transform duration-1000"
+                    id="heroImage"
+                >
+                <div class="absolute inset-0 bg-gradient-to-t from-aurea-sand via-black/25 to-black/45"></div>
+            </div>
+
+            <!-- Contenuto Centrale Hero -->
+            <div class="max-w-4xl mx-auto text-white mt-10">
+                <span class="inline-block py-1.5 px-4 mb-5 rounded-full border border-white/30 backdrop-blur-md text-[11px] uppercase tracking-[0.3em] font-semibold text-white/90">
+                    Collezione Esclusiva 2026
+                </span>
+                
+                <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-light leading-[1.1] mb-6 text-white drop-shadow-sm">
+                    L'arte di perdersi <br><span class="italic font-normal">nei luoghi più segreti della Terra.</span>
+                </h1>
+                
+                <p class="max-w-xl mx-auto text-sm sm:text-base text-white/90 font-light leading-relaxed mb-10 tracking-wide">
+                    Itinerari d'eccellenza, dimore d'epoca e silenzi introvabili pensati per chi considera il viaggio un capitolo indelebile della propria vita.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#destinazioni" class="w-full sm:w-auto px-8 py-3.5 rounded-full text-xs font-semibold uppercase tracking-[0.2em] bg-white text-aurea-umber hover:bg-aurea-bronze hover:text-white transition-all duration-300 shadow-xl">
+                        Esplora gli Itinerari
+                    </a>
+                    <a href="#filosofia" class="w-full sm:w-auto px-8 py-3.5 rounded-full text-xs font-semibold uppercase tracking-[0.2em] border border-white/60 text-white hover:bg-white/10 backdrop-blur-sm transition-all duration-300">
+                        La Nostra Visione
+                    </a>
+                </div>
+            </div>
+
+            <!-- BARRA DI RICERCA / FILTRO DINAMICA (Floating Search Bar) -->
+            <div class="w-full max-w-5xl mx-auto mt-16 sm:mt-24 z-20">
+                <div class="bg-white/95 backdrop-blur-xl p-5 sm:p-6 rounded-3xl shadow-2xl border border-white/60 text-left">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-center">
+                        
+                        <!-- Filtro 1: Continente / Destinazione -->
+                        <div class="flex flex-col border-b sm:border-b-0 sm:border-r border-aurea-cream pb-3 sm:pb-0 sm:pr-4">
+                            <label class="text-[10px] uppercase font-bold tracking-[0.2em] text-aurea-muted mb-1 flex items-center gap-1.5">
+                                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-aurea-bronze"></i> Destinazione
+                            </label>
+                            <select id="filterRegion" class="bg-transparent text-sm font-semibold text-aurea-charcoal focus:outline-none cursor-pointer">
+                                <option value="all">Tutti i continenti</option>
+                                <option value="Asia">Asia & Oriente</option>
+                                <option value="Europa">Europa & Isole</option>
+                                <option value="Africa">Africa & Deserti</option>
+                                <option value="Americhe">Americhe & Polari</option>
+                            </select>
+                        </div>
+
+                        <!-- Filtro 2: Stile di Viaggio -->
+                        <div class="flex flex-col border-b sm:border-b-0 lg:border-r border-aurea-cream pb-3 sm:pb-0 sm:pr-4">
+                            <label class="text-[10px] uppercase font-bold tracking-[0.2em] text-aurea-muted mb-1 flex items-center gap-1.5">
+                                <i data-lucide="compass" class="w-3.5 h-3.5 text-aurea-bronze"></i> Stile
+                            </label>
+                            <select id="filterCategory" class="bg-transparent text-sm font-semibold text-aurea-charcoal focus:outline-none cursor-pointer">
+                                <option value="all">Tutti gli stili</option>
+                                <option value="Romantico">Fuga Romantica</option>
+                                <option value="Relax & Benessere">Relax & Benessere</option>
+                                <option value="Avventura & Natura">Avventura & Natura</option>
+                                <option value="Cultura & Storia">Cultura & Storia</option>
+                            </select>
+                        </div>
+
+                        <!-- Filtro 3: Budget Indicativo -->
+                        <div class="flex flex-col border-b lg:border-b-0 border-aurea-cream pb-3 sm:pb-0 sm:pr-4">
+                            <label class="text-[10px] uppercase font-bold tracking-[0.2em] text-aurea-muted mb-1 flex items-center gap-1.5">
+                                <i data-lucide="wallet" class="w-3.5 h-3.5 text-aurea-bronze"></i> Budget per Persona
+                            </label>
+                            <select id="filterBudget" class="bg-transparent text-sm font-semibold text-aurea-charcoal focus:outline-none cursor-pointer">
+                                <option value="all">Qualsiasi fascia</option>
+                                <option value="under3000">Fino a €3.000</option>
+                                <option value="3000-6000">€3.000 - €6.000</option>
+                                <option value="over6000">Oltre €6.000</option>
+                            </select>
+                        </div>
+
+                        <!-- Tasto Applica Filtri -->
+                        <div class="pt-2 sm:pt-0">
+                            <button id="applyFiltersBtn" class="w-full py-3.5 px-6 rounded-2xl bg-aurea-bronze hover:bg-aurea-bronzeDark text-white font-medium text-xs uppercase tracking-[0.18em] transition-all duration-300 flex items-center justify-center gap-2 shadow-md">
+                                <i data-lucide="sliders-horizontal" class="w-4 h-4"></i>
+                                <span>Filtra Viaggi</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================
+             3. SEZIONE DESTINAZIONI IN EVIDENZA (DINAMICA JAVASCRIPT)
+        ======================================================== -->
+        <section id="destinazioni" class="py-24 px-6 max-w-7xl mx-auto">
+            <!-- Header Sezione -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-14">
+                <div>
+                    <span class="text-xs uppercase tracking-[0.3em] font-semibold text-aurea-bronze mb-2 block">Collezioni Selezionate</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-light text-aurea-umber">Destinazioni Straordinarie</h2>
+                </div>
+                <p class="text-aurea-muted text-sm max-w-md mt-4 md:mt-0 font-light leading-relaxed">
+                    Ogni proposta è curata nei minimi dettagli dai nostri Travel Designer: accessi esclusivi, guide storiche private e alloggi dal fascino senza tempo.
+                </p>
+            </div>
+
+            <!-- Contenitore Griglia Dinamica -->
+            <div id="destinationsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Verrà popolato dinamicamente via JS dall'array `travelData` -->
+            </div>
+
+            <!-- Messaggio di nessun risultato -->
+            <div id="noResultsMsg" class="hidden text-center py-16 bg-white/40 rounded-3xl border border-dashed border-aurea-cream">
+                <i data-lucide="search-x" class="w-12 h-12 mx-auto text-aurea-muted/60 mb-3"></i>
+                <h3 class="font-serif text-2xl text-aurea-umber mb-1">Nessun itinerario trovato</h3>
+                <p class="text-sm text-aurea-muted mb-4">Prova a modificare i filtri o richiedici un preventivo personalizzato.</p>
+                <button id="resetFiltersBtn" class="px-5 py-2 text-xs uppercase tracking-widest font-semibold bg-aurea-sand border border-aurea-bronze text-aurea-bronze hover:bg-aurea-bronze hover:text-white rounded-full transition">
+                    Mostra Tutti
+                </button>
+            </div>
+        </section>
+
+        <!-- ========================================================
+             4. LA NOSTRA FILOSOFIA DI VIAGGIO
+        ======================================================== -->
+        <section id="filosofia" class="py-24 bg-white border-y border-aurea-cream">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="relative">
+                        <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
+                            <img 
+                                src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1200&q=80" 
+                                alt="Momento rilassante in un resort esclusivo" 
+                                class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                            >
+                        </div>
+                        <div class="absolute -bottom-8 -right-8 bg-aurea-sand p-6 sm:p-8 rounded-3xl shadow-xl border border-aurea-cream max-w-xs hidden sm:block">
+                            <p class="font-serif text-2xl text-aurea-umber italic font-medium leading-snug">"Viaggiare non è fuggire dal quotidiano, ma ritrovarvi la sacralità del tempo."</p>
+                            <span class="text-[11px] uppercase tracking-widest text-aurea-muted mt-3 block font-semibold">— Manifesto AUREA</span>
+                        </div>
+                    </div>
+
+                    <div class="lg:pl-8">
+                        <span class="text-xs uppercase tracking-[0.3em] font-semibold text-aurea-bronze mb-3 block">Il Nostro Approccio</span>
+                        <h2 class="font-serif text-3xl sm:text-5xl font-light text-aurea-umber mb-6 leading-tight">
+                            Esperienze che lasciano <br><span class="italic font-normal">un'impronta nell'anima.</span>
+                        </h2>
+                        <p class="text-aurea-muted font-light leading-relaxed mb-8 text-sm sm:text-base">
+                            Rifiutiamo il turismo di massa e la fretta dei circuiti convenzionali. Creiamo sinergie autentiche con comunità locali, boutique lodge a basso impatto ecologico ed esperti custodi di segreti culturali secolari.
+                        </p>
+
+                        <!-- Punti Chiave -->
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-full bg-aurea-sand flex items-center justify-center shrink-0 border border-aurea-cream text-aurea-bronze">
+                                    <i data-lucide="gem" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-aurea-charcoal text-sm uppercase tracking-wider">Accessi Esclusivi</h4>
+                                    <p class="text-xs text-aurea-muted mt-1 leading-relaxed">Visite private a porte chiuse a musei, dimore storiche e riserve naturali protette.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-full bg-aurea-sand flex items-center justify-center shrink-0 border border-aurea-cream text-aurea-bronze">
+                                    <i data-lucide="user-check" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-aurea-charcoal text-sm uppercase tracking-wider">Concierge Dedicato H24</h4>
+                                    <p class="text-xs text-aurea-muted mt-1 leading-relaxed">Un Travel Designer a tua completa disposizione prima, durante e dopo ogni itinerario.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-full bg-aurea-sand flex items-center justify-center shrink-0 border border-aurea-cream text-aurea-bronze">
+                                    <i data-lucide="feather" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-aurea-charcoal text-sm uppercase tracking-wider">Sostenibilità & Rispetto</h4>
+                                    <p class="text-xs text-aurea-muted mt-1 leading-relaxed">Compensazione delle emissioni di carbonio e sostegno a progetti di conservazione della fauna e artigianato autoctono.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================
+             5. ESPERIENZE SPECIALI / CATEGORIE ICONICHE
+        ======================================================== -->
+        <section id="esperienze" class="py-24 px-6 max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-[0.3em] font-semibold text-aurea-bronze mb-2 block">Momenti Unici</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-light text-aurea-umber">Esperienze da Vivere</h2>
+                <p class="text-aurea-muted text-sm mt-3 font-light">Non semplici viaggi, ma momenti curati per stimolare ogni senso.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Scheda Esperienza 1 -->
+                <div class="group relative rounded-3xl overflow-hidden aspect-[3/4] shadow-lg cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=800&q=80" 
+                         alt="Cena sotto le stelle" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-8 text-white">
+                        <span class="text-[10px] tracking-[0.25em] uppercase text-aurea-bronze font-bold">Gastronomia Stellata</span>
+                        <h3 class="font-serif text-2xl font-light mt-1">Cene Private sotto la Volta Celeste</h3>
+                        <p class="text-xs text-white/80 mt-2 font-light line-clamp-2">Chef privati al lavoro sulle dune del deserto o su scogliere a picco sul mare aperto.</p>
+                    </div>
+                </div>
+
+                <!-- Scheda Esperienza 2 -->
+                <div class="group relative rounded-3xl overflow-hidden aspect-[3/4] shadow-lg cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" 
+                         alt="Terme naturali segrete" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-8 text-white">
+                        <span class="text-[10px] tracking-[0.25em] uppercase text-aurea-bronze font-bold">Rigenerazione</span>
+                        <h3 class="font-serif text-2xl font-light mt-1">Santuari Termali Nascosti</h3>
+                        <p class="text-xs text-white/80 mt-2 font-light line-clamp-2">Sorgenti geotermiche islandesi e ryokan tradizionali nelle foreste sacre del Giappone.</p>
+                    </div>
+                </div>
+
+                <!-- Scheda Esperienza 3 -->
+                <div class="group relative rounded-3xl overflow-hidden aspect-[3/4] shadow-lg cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800&q=80" 
+                         alt="Safari Privato in Africa" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-8 text-white">
+                        <span class="text-[10px] tracking-[0.25em] uppercase text-aurea-bronze font-bold">Natura Selvaggia</span>
+                        <h3 class="font-serif text-2xl font-light mt-1">Safari Silenziosi in Camp Esclusivi</h3>
+                        <p class="text-xs text-white/80 mt-2 font-light line-clamp-2">Tracciamento a piedi con ranger locali nel delta dell'Okavango e nel Serengeti.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================
+             6. DIARIO DI VIAGGIO / RECENSIONI SELEZIONATE
+        ======================================================== -->
+        <section id="recensioni" class="py-24 bg-aurea-cream/40 border-t border-aurea-cream">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-xs uppercase tracking-[0.3em] font-semibold text-aurea-bronze mb-2 block">Parole di Viaggiatori</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-light text-aurea-umber">Il Diario di Bordo</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Recensione 1 -->
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-aurea-cream flex flex-col justify-between">
+                        <div>
+                            <div class="flex text-aurea-bronze mb-4">
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                            <p class="font-serif text-lg italic text-aurea-charcoal leading-relaxed mb-6">
+                                "La spedizione in Patagonia ha superato qualsiasi nostra immaginazione. L'accoglienza nelle estancia e la guida privata hanno reso il viaggio intimo e indimenticabile."
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-aurea-sand flex items-center justify-between">
+                            <div>
+                                <h4 class="font-semibold text-xs tracking-wider uppercase text-aurea-umber">Elena & Marco G.</h4>
+                                <span class="text-[11px] text-aurea-muted">Itinerario Terra del Fuoco & Ghiacciai</span>
+                            </div>
+                            <span class="text-xs font-serif text-aurea-bronze">Milano</span>
+                        </div>
+                    </div>
+
+                    <!-- Recensione 2 -->
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-aurea-cream flex flex-col justify-between">
+                        <div>
+                            <div class="flex text-aurea-bronze mb-4">
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                            <p class="font-serif text-lg italic text-aurea-charcoal leading-relaxed mb-6">
+                                "Vivere Kyoto e il monte Koya accompagnati da studiosi locali è stato un privilegio impagabile. Tutto era armonico, misurato e impeccabilmente coordinato."
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-aurea-sand flex items-center justify-between">
+                            <div>
+                                <h4 class="font-semibold text-xs tracking-wider uppercase text-aurea-umber">Arch. Roberto F.</h4>
+                                <span class="text-[11px] text-aurea-muted">Giappone Spirituale & Design</span>
+                            </div>
+                            <span class="text-xs font-serif text-aurea-bronze">Roma</span>
+                        </div>
+                    </div>
+
+                    <!-- Recensione 3 -->
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-aurea-cream flex flex-col justify-between">
+                        <div>
+                            <div class="flex text-aurea-bronze mb-4">
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                            <p class="font-serif text-lg italic text-aurea-charcoal leading-relaxed mb-6">
+                                "Il nostro viaggio di nozze tra le isole cicladiche segrete: nessuna folla, yacht ormeggiati in calette trasparenti e cene con pescato del giorno al tramonto."
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-aurea-sand flex items-center justify-between">
+                            <div>
+                                <h4 class="font-semibold text-xs tracking-wider uppercase text-aurea-umber">Giulia & Matteo V.</h4>
+                                <span class="text-[11px] text-aurea-muted">Fuga Egea & Isole Minori</span>
+                            </div>
+                            <span class="text-xs font-serif text-aurea-bronze">Firenze</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================
+             7. FORM "CREA IL TUO VIAGGIO SU MISURA"
+        ======================================================== -->
+        <section id="su-misura" class="py-24 px-6 max-w-5xl mx-auto">
+            <div class="bg-white rounded-3xl shadow-xl border border-aurea-cream p-8 sm:p-14">
+                <div class="text-center max-w-xl mx-auto mb-12">
+                    <span class="text-xs uppercase tracking-[0.3em] font-semibold text-aurea-bronze mb-2 block">Atelier di Viaggio</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-light text-aurea-umber">Disegniamo il Tuo Prossimo Viaggio</h2>
+                    <p class="text-xs sm:text-sm text-aurea-muted mt-2 font-light">
+                        Condividi i tuoi desideri: un Travel Designer dedicato ti contatterà entro 24 ore con una prima bozza di itinerario su misura.
+                    </p>
+                </div>
+
+                <form id="tailorMadeForm" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- Nome Completo -->
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider font-semibold text-aurea-muted mb-2">Nome e Cognome *</label>
+                            <input type="text" id="custName" required placeholder="Es. Alessandro Moretti" 
+                                class="w-full px-4 py-3 text-sm bg-aurea-sand/60 border border-aurea-cream rounded-xl focus:outline-none focus:border-aurea-bronze transition">
+                        </div>
+
+                        <!-- Email -->
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider font-semibold text-aurea-muted mb-2">Indirizzo Email *</label>
+                            <input type="email" id="custEmail" required placeholder="alessandro@esempio.it" 
+                                class="w-full px-4 py-3 text-sm bg-aurea-sand/60 border border-aurea-cream rounded-xl focus:outline-none focus:border-aurea-bronze transition">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        <!-- Destinazione Desiderata -->
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider font-semibold text-aurea-muted mb-2">Destinazione o Area</label>
+                            <input type="text" id="custDest" placeholder="Es. Giappone, Isole Svalbard..." 
+                                class="w-full px-4 py-3 text-sm bg-aurea-sand/60 border border-aurea-cream rounded-xl focus:outline-none focus:border-aurea-bronze transition">
+                        </div>
+
+                        <!-- Periodo Indicativo -->
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider font-semibold text-aurea-muted mb-2">Periodo Previsto</label>
+                            <input type="text" id="custPeriod" placeholder="Es. Settembre 2026 (2 settimane)" 
+                                class="w-full px-4 py-3 text-sm bg-aurea-sand/60 border border-aurea-cream rounded-xl focus:outline-none focus:border-aurea-bronze transition">
+                        </div>
+
+                        <!-- Budget Stimato -->
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider font-semibold text-aurea-muted mb-2">Budget per Persona</label>
+                            <select id="custBudget" class="w-full px-4 py-3 text-sm bg-aurea-sand/60 border border-aurea-cream rounded-xl focus:outline-none focus:border-aurea-bronze transition cursor-pointer">
+                                <option value="€2.500 - €4.000">€2.500 - €4.000</option>
+                                <option value="€4.000 - €7.500" selected>€4.000 - €7.500</option>
+                                <option value="€7.500 - €12.000">€7.500 - €12.000</option>
+                                <option value="Oltre €12.000">Oltre €12.000 (Luxury Private)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Note e desideri speciali -->
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider font-semibold text-aurea-muted mb-2">Desideri, ritmi preferiti o passioni particolari</label>
+                        <textarea id="custNotes" rows="4" placeholder="Es. Amiamo la buona cucina, preferiamo hotel con spa intime e vorremmo una guida archeologica privata..." 
+                            class="w-full px-4 py-3 text-sm bg-aurea-sand/60 border border-aurea-cream rounded-xl focus:outline-none focus:border-aurea-bronze transition"></textarea>
+                    </div>
+
+                    <!-- Privacy Policy Check -->
+                    <div class="flex items-center gap-3">
+                        <input type="checkbox" id="privacyPolicy" required class="w-4 h-4 rounded border-aurea-cream text-aurea-bronze focus:ring-aurea-bronze">
+                        <label for="privacyPolicy" class="text-xs text-aurea-muted">
+                            Ho letto e accetto l'<a href="#" class="underline hover:text-aurea-charcoal">informativa sulla privacy</a> per l'elaborazione del preventivo.
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center pt-2">
+                        <button type="submit" class="w-full sm:w-auto px-10 py-4 rounded-full bg-aurea-umber hover:bg-aurea-bronze text-white font-medium text-xs uppercase tracking-[0.2em] transition-all duration-300 shadow-lg">
+                            Richiedi Progetto di Viaggio Riservato
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========================================================
+         8. FOOTER ELEGANTE E COMPLETO
+    ======================================================== -->
+    <footer class="bg-aurea-umber text-aurea-sand pt-20 pb-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+                
+                <!-- Colonna 1: Brand e Filosofia -->
+                <div class="lg:col-span-2">
+                    <span class="font-serif text-3xl tracking-[0.25em] font-semibold text-white uppercase block mb-3">
+                        AUREA
+                    </span>
+                    <p class="text-aurea-cream/70 text-xs leading-relaxed max-w-sm mb-6 font-light">
+                        Atelier di viaggi d'alta gamma con sede a Firenze e Milano. Creiamo itinerari esclusivi, rispettosi delle culture autoctone e ricchi di significato emotivo.
+                    </p>
+                    <div class="flex items-center space-x-4 text-aurea-cream/80">
+                        <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-aurea-bronze hover:text-aurea-bronze transition"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+                        <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-aurea-bronze hover:text-aurea-bronze transition"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+                        <a href="#" aria-label="LinkedIn" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-aurea-bronze hover:text-aurea-bronze transition"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+
+                <!-- Colonna 2: Destinazioni -->
+                <div>
+                    <h5 class="text-xs uppercase font-bold tracking-[0.2em] text-white mb-4">Mondi da Scoprire</h5>
+                    <ul class="space-y-2.5 text-xs text-aurea-cream/70 font-light">
+                        <li><a href="#destinazioni" class="hover:text-white transition">Giappone & Antiche Vie</a></li>
+                        <li><a href="#destinazioni" class="hover:text-white transition">Patagonia & Fiordi Polari</a></li>
+                        <li><a href="#destinazioni" class="hover:text-white transition">Safari in Botswana</a></li>
+                        <li><a href="#destinazioni" class="hover:text-white transition">Norvegia & Isole Lofoten</a></li>
+                        <li><a href="#destinazioni" class="hover:text-white transition">Oman & Oasi di Silenzio</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonna 3: La Maison -->
+                <div>
+                    <h5 class="text-xs uppercase font-bold tracking-[0.2em] text-white mb-4">La Maison</h5>
+                    <ul class="space-y-2.5 text-xs text-aurea-cream/70 font-light">
+                        <li><a href="#filosofia" class="hover:text-white transition">La Nostra Filosofia</a></li>
+                        <li><a href="#esperienze" class="hover:text-white transition">Esperienze Private</a></li>
+                        <li><a href="#recensioni" class="hover:text-white transition">Diario dei Viaggiatori</a></li>
+                        <li><a href="#su-misura" class="hover:text-white transition">Travel Design Privé</a></li>
+                        <li><a href="#" class="hover:text-white transition">Codice Etico & Green</a></li>
+                    </ul>
+                </div>
+
+                <!-- Colonna 4: Newsletter d'Ispirazione -->
+                <div>
+                    <h5 class="text-xs uppercase font-bold tracking-[0.2em] text-white mb-4">Ispirazioni AUREA</h5>
+                    <p class="text-xs text-aurea-cream/70 mb-4 font-light">Ricevi mensilmente una selezione di dimore segrete e mete inesplorate.</p>
+                    <form id="newsletterForm" class="flex flex-col gap-2">
+                        <input type="email" placeholder="La tua email..." required class="px-4 py-2.5 text-xs bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-aurea-bronze">
+                        <button type="submit" class="px-4 py-2.5 bg-aurea-bronze hover:bg-aurea-bronzeDark text-white text-xs uppercase tracking-wider font-semibold rounded-xl transition">
+                            Iscriviti
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Copyright e Note Legali -->
+            <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-aurea-cream/50 space-y-4 sm:space-y-0">
+                <p>&copy; <span id="currentYear"></span> AUREA Luxury Travel S.r.l. - Tutti i diritti riservati.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Termini e Condizioni</a>
+                    <a href="#" class="hover:text-white transition">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================================
+         9. MODALE DETTAGLIO ITINERARIO (Aperto da "Scopri Itinerario")
+    ======================================================== -->
+    <div id="itineraryModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-aurea-cream relative fade-in">
+            <!-- Pulsante di chiusura -->
+            <button id="closeModalBtn" aria-label="Chiudi finestra" class="absolute top-5 right-5 z-20 w-10 h-10 rounded-full bg-white/80 hover:bg-white text-aurea-umber flex items-center justify-center shadow-md transition">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <!-- Immagine di Copertina Modale -->
+            <div class="relative h-64 sm:h-80 w-full overflow-hidden">
+                <img id="modalImage" src="" alt="" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                <div class="absolute bottom-6 left-6 right-6 text-white">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span id="modalRegionBadge" class="px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-widest bg-aurea-bronze text-white"></span>
+                        <span id="modalStyleBadge" class="px-3 py-1 rounded-full text-[10px] uppercase font-semibold tracking-wider bg-white/20 backdrop-blur-md text-white"></span>
+                    </div>
+                    <h3 id="modalTitle" class="font-serif text-2xl sm:text-4xl font-light"></h3>
+                </div>
+            </div>
+
+            <!-- Corpo del Modale -->
+            <div class="p-6 sm:p-8">
+                <!-- Info rapide: Durata, Gruppo, Prezzo -->
+                <div class="grid grid-cols-3 gap-4 pb-6 mb-6 border-b border-aurea-cream text-center">
+                    <div>
+                        <span class="block text-[10px] uppercase font-bold tracking-wider text-aurea-muted">Durata</span>
+                        <span id="modalDuration" class="text-sm font-semibold text-aurea-umber"></span>
+                    </div>
+                    <div>
+                        <span class="block text-[10px] uppercase font-bold tracking-wider text-aurea-muted">Tipologia</span>
+                        <span id="modalType" class="text-sm font-semibold text-aurea-umber">Privato / Su Misura</span>
+                    </div>
+                    <div>
+                        <span class="block text-[10px] uppercase font-bold tracking-wider text-aurea-muted">A partire da</span>
+                        <span id="modalPrice" class="text-sm font-semibold text-aurea-bronze"></span>
+                    </div>
+                </div>
+
+                <!-- Descrizione Dettagliata -->
+                <div class="mb-8">
+                    <h4 class="text-xs uppercase font-bold tracking-[0.2em] text-aurea-muted mb-2">Panoramica dell'Itinerario</h4>
+                    <p id="modalDescription" class="text-sm text-aurea-charcoal font-light leading-relaxed"></p>
+                </div>
+
+                <!-- Punti Salienti (Highlights) -->
+                <div class="mb-8">
+                    <h4 class="text-xs uppercase font-bold tracking-[0.2em] text-aurea-muted mb-3">Momenti Esclusivi Inclusi</h4>
+                    <ul id="modalHighlights" class="space-y-2 text-xs sm:text-sm text-aurea-charcoal">
+                        <!-- Popolato via JS -->
+                    </ul>
+                </div>
+
+                <!-- CTA del Modale -->
+                <div class="bg-aurea-sand p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div>
+                        <h5 class="font-serif text-lg text-aurea-umber font-medium">Desideri personalizzare questo viaggio?</h5>
+                        <p class="text-xs text-aurea-muted">Modifica giorni, strutture alberghiere o tappe con i nostri specialisti.</p>
+                    </div>
+                    <button id="modalBookBtn" class="shrink-0 px-6 py-3 rounded-full bg-aurea-bronze hover:bg-aurea-bronzeDark text-white text-xs font-semibold uppercase tracking-widest transition">
+                        Richiedi Disponibilità
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================
+         10. NOTIFICA TOAST ELEGANTE (Feedback Visivo)
+    ======================================================== -->
+    <div id="toastNotification" class="fixed bottom-6 right-6 z-50 transform translate-y-32 opacity-0 transition-all duration-300 pointer-events-none max-w-sm w-full">
+        <div class="bg-aurea-umber text-white p-4 rounded-2xl shadow-2xl border border-aurea-bronze/40 flex items-start space-x-3">
+            <div class="p-2 rounded-xl bg-aurea-bronze/20 text-aurea-bronze shrink-0">
+                <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+            </div>
+            <div class="flex-1">
+                <h6 id="toastTitle" class="text-xs font-bold uppercase tracking-wider text-aurea-sand">Richiesta Ricevuta</h6>
+                <p id="toastMessage" class="text-xs text-white/80 mt-0.5 leading-relaxed">Grazie per averci contattato. Ti risponderemo al più presto.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================
+         11. JAVASCRIPT: DATI DINAMICI & LOGICA DI GESTIONE
+    ======================================================== -->
+    <script>
+        /* ========================================================
+           STRUTTURA DATI: DESTINAZIONI E PACCHETTI VIAGGIO
+           Qui puoi facilmente aggiungere, modificare o rimuovere
+           qualsiasi destinazione per pubblicare il tuo sito reale.
+        ======================================================== */
+        const travelData = [
+            {
+                id: "giappone-zen",
+                title: "Giappone: L'Armonia dei Ryokan e Templi Millenari",
+                region: "Asia",
+                category: "Cultura & Storia",
+                price: 5400,
+                duration: "13 Giorni / 12 Notti",
+                image: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80",
+                description: "Un percorso intimo che unisce l'avanguardia architettonica di Tokyo al silenzio meditativo dei templi di Kyoto e del Monte Koya, con pernottamenti esclusivi in ryokan dotati di onsen privati.",
+                highlights: [
+                    "Cerimonia del tè privata con maestro secolare a Kyoto",
+                    "Pernottamento esclusivo in monastero sul Monte Koya con cucina shojin ryori",
+                    "Passeggiata notturna guidata tra le stradine storiche di Gion",
+                    "Trasferimenti panoramici in prima classe Shinkansen"
+                ]
+            },
+            {
+                id: "patagonia-glaciers",
+                title: "Patagonia Selvaggia: Ai Confini della Terra",
+                region: "Americhe",
+                category: "Avventura & Natura",
+                price: 6800,
+                duration: "15 Giorni / 14 Notti",
+                image: "https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?auto=format&fit=crop&w=1200&q=80",
+                description: "Dalle vette granitiche di Torres del Paine al respiro maestoso del Perito Moreno. Un'avventura autentica vissuta all'interno di lodge ecosostenibili dal design d'autore.",
+                highlights: [
+                    "Navigazione privata in catamarano tra i ghiacciai del Lago Argentino",
+                    "Trekking esclusivo con guide alpine esperte nel parco di Torres del Paine",
+                    "Degustazione di vini pregiati nelle cantine storiche di Mendoza",
+                    "Volo panoramico sulle cime della Terra del Fuoco"
+                ]
+            },
+            {
+                id: "grecia-cicladi",
+                title: "Cicladi Segrete: Veleggiare nell'Oro dell'Egeo",
+                region: "Europa",
+                category: "Romantico",
+                price: 2900,
+                duration: "8 Giorni / 7 Notti",
+                image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1200&q=80",
+                description: "Una crociera privata su yacht storico a vela alla scoperta di cale inaccessibili a Folegandros, Milos e Sifnos, lontani dalle rotte del turismo convenzionale.",
+                highlights: [
+                    "Yacht privato con skipper e chef di bordo a disposizione",
+                    "Ancoraggi in baie incontaminate e grotte marine nascoste",
+                    "Aperitivo al tramonto su scogliere solitarie con assaggio di prodotti locali",
+                    "Visita guidata ai laboratori di ceramica tradizionale cicladica"
+                ]
+            },
+            {
+                id: "oman-deserto",
+                title: "Oman: Notti Arabe tra Dune e Fiordi del Musandam",
+                region: "Asia",
+                category: "Relax & Benessere",
+                price: 3600,
+                duration: "10 Giorni / 9 Notti",
+                image: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80",
+                description: "Tra canyon mozzafiato, oasi verdeggianti e l'eleganza di Muscat. La magia di dormire in un campo tendato di super-lusso sotto una trapunta ininterrotta di stelle nel deserto di Wahiba.",
+                highlights: [
+                    "Glamping di charme a cinque stelle nel deserto di Wahiba Sands",
+                    "Crociera in dhow tradizionale nei fiordi spettacolari del Musandam",
+                    "Bagno nelle piscine naturali color smeraldo di Wadi Shab",
+                    "Guida archeologica privata tra i forti storici di Nizwa"
+                ]
+            },
+            {
+                id: "norvegia-fiordi",
+                title: "Norvegia & Lofoten: La Danza dell'Aurora Boreale",
+                region: "Europa",
+                category: "Avventura & Natura",
+                price: 4200,
+                duration: "9 Giorni / 8 Notti",
+                image: "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?auto=format&fit=crop&w=1200&q=80",
+                description: "Un viaggio contemplativo tra le casette di pescatori (rorbuer) ristrutturate con eleganza nordica, fiordi spettacolari e la caccia all'Aurora Boreale guidata da fotografi professionisti.",
+                highlights: [
+                    "Soggiorno in rorbu di design sul mare con sauna panoramica privata",
+                    "Workshop fotografico notturno con caccia guidata all'Aurora Boreale",
+                    "Safari in gommone oceanico per avvistare le aquile di mare",
+                    "Cena gourmet a base di stoccafisso artigianale e prodotti artici"
+                ]
+            },
+            {
+                id: "botswana-safari",
+                title: "Botswana Sublime: Nel Cuore del Delta dell'Okavango",
+                region: "Africa",
+                category: "Avventura & Natura",
+                price: 8500,
+                duration: "11 Giorni / 10 Notti",
+                image: "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=1200&q=80",
+                description: "Il delta interno più grande del mondo vissuto a bordo di mokoro tradizionali e da campi tendati ultra-esclusivi a basso impatto ambientale.",
+                highlights: [
+                    "Voli in Cessna privato tra un campo e l'altro con vista dall'alto sul delta",
+                    "Safari a piedi e in barca condotti da tracciatori indigeni",
+                    "Lodge ecosostenibili ad alimentazione 100% solare immersi nella natura",
+                    "Cena privata nel bush africano al bagliore delle lanterne a olio"
+                ]
+            }
+        ];
+
+        /* ========================================================
+           ELEMENTI DEL DOM
+        ======================================================== */
+        const destinationsGrid = document.getElementById('destinationsGrid');
+        const noResultsMsg = document.getElementById('noResultsMsg');
+        const filterRegion = document.getElementById('filterRegion');
+        const filterCategory = document.getElementById('filterCategory');
+        const filterBudget = document.getElementById('filterBudget');
+        const applyFiltersBtn = document.getElementById('applyFiltersBtn');
+        const resetFiltersBtn = document.getElementById('resetFiltersBtn');
+
+        // Elementi del Modale
+        const itineraryModal = document.getElementById('itineraryModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const modalImage = document.getElementById('modalImage');
+        const modalRegionBadge = document.getElementById('modalRegionBadge');
+        const modalStyleBadge = document.getElementById('modalStyleBadge');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDuration = document.getElementById('modalDuration');
+        const modalPrice = document.getElementById('modalPrice');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalHighlights = document.getElementById('modalHighlights');
+        const modalBookBtn = document.getElementById('modalBookBtn');
+
+        // Form e Toast
+        const tailorMadeForm = document.getElementById('tailorMadeForm');
+        const newsletterForm = document.getElementById('newsletterForm');
+        const toastNotification = document.getElementById('toastNotification');
+        const toastTitle = document.getElementById('toastTitle');
+        const toastMessage = document.getElementById('toastMessage');
+
+        // Anno Corrente Footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        /* ========================================================
+           RENDERING DELLE CARTE DESTINAZIONE
+        ======================================================== */
+        function renderDestinations(items) {
+            destinationsGrid.innerHTML = '';
+            
+            if (items.length === 0) {
+                noResultsMsg.classList.remove('hidden');
+                return;
+            } else {
+                noResultsMsg.classList.add('hidden');
+            }
+
+            items.forEach(trip => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-aurea-cream flex flex-col group";
+
+                card.innerHTML = `
+                    <!-- Immagine di Copertina -->
+                    <div class="relative aspect-[16/10] overflow-hidden">
+                        <img 
+                            src="${trip.image}" 
+                            alt="${trip.title}" 
+                            loading="lazy"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        >
+                        <div class="absolute top-4 left-4 flex gap-2">
+                            <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/90 backdrop-blur-md text-aurea-umber">
+                                ${trip.region}
+                            </span>
+                            <span class="px-3 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-aurea-bronze/90 backdrop-blur-md text-white">
+                                ${trip.category}
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Contenuto Carta -->
+                    <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center text-[11px] text-aurea-muted font-medium mb-2 gap-4">
+                                <span class="flex items-center gap-1">
+                                    <i data-lucide="clock" class="w-3.5 h-3.5 text-aurea-bronze"></i> ${trip.duration}
+                                </span>
+                            </div>
+
+                            <h3 class="font-serif text-xl sm:text-2xl font-light text-aurea-umber mb-3 leading-snug group-hover:text-aurea-bronze transition-colors">
+                                ${trip.title}
+                            </h3>
+
+                            <p class="text-xs text-aurea-muted line-clamp-2 font-light leading-relaxed mb-6">
+                                ${trip.description}
+                            </p>
+                        </div>
+
+                        <!-- Footer Carta: Prezzo & Azione -->
+                        <div class="pt-4 border-t border-aurea-sand flex items-center justify-between">
+                            <div>
+                                <span class="block text-[10px] uppercase tracking-wider text-aurea-muted">A partire da</span>
+                                <span class="text-base font-semibold text-aurea-charcoal">€${trip.price.toLocaleString('it-IT')}</span>
+                            </div>
+
+                            <button 
+                                onclick="openModal('${trip.id}')"
+                                class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-aurea-sand text-aurea-umber hover:bg-aurea-bronze hover:text-white transition duration-200">
+                                <span>Itinerario</span>
+                                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                destinationsGrid.appendChild(card);
+            });
+
+            // Re-inizializza le icone Lucide create dinamicamente
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        }
+
+        /* ========================================================
+           FILTRAGGIO DINAMICO DEI VIAGGI
+        ======================================================== */
+        function applyFilters() {
+            const selectedRegion = filterRegion.value;
+            const selectedCategory = filterCategory.value;
+            const selectedBudget = filterBudget.value;
+
+            const filtered = travelData.filter(trip => {
+                // Filtro per Regione / Continente
+                const matchRegion = (selectedRegion === 'all' || trip.region === selectedRegion);
+
+                // Filtro per Stile di Viaggio
+                const matchCategory = (selectedCategory === 'all' || trip.category === selectedCategory);
+
+                // Filtro per Budget
+                let matchBudget = true;
+                if (selectedBudget === 'under3000') {
+                    matchBudget = trip.price <= 3000;
+                } else if (selectedBudget === '3000-6000') {
+                    matchBudget = trip.price > 3000 && trip.price <= 6000;
+                } else if (selectedBudget === 'over6000') {
+                    matchBudget = trip.price > 6000;
+                }
+
+                return matchRegion && matchCategory && matchBudget;
+            });
+
+            renderDestinations(filtered);
+
+            // Scorrimento morbido alla sezione se filtrato da pulsante
+            const destSection = document.getElementById('destinazioni');
+            if (destSection) {
+                const navHeight = 80;
+                const top = destSection.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                window.scrollTo({ top, behavior: 'smooth' });
+            }
+        }
+
+        applyFiltersBtn.addEventListener('click', applyFilters);
+
+        // Reset dei filtri
+        resetFiltersBtn.addEventListener('click', () => {
+            filterRegion.value = 'all';
+            filterCategory.value = 'all';
+            filterBudget.value = 'all';
+            renderDestinations(travelData);
+        });
+
+        /* ========================================================
+           GESTIONE MODALE DETTAGLI
+        ======================================================== */
+        let activeTrip = null;
+
+        window.openModal = function(tripId) {
+            const trip = travelData.find(t => t.id === tripId);
+            if (!trip) return;
+
+            activeTrip = trip;
+
+            modalImage.src = trip.image;
+            modalImage.alt = trip.title;
+            modalRegionBadge.textContent = trip.region;
+            modalStyleBadge.textContent = trip.category;
+            modalTitle.textContent = trip.title;
+            modalDuration.textContent = trip.duration;
+            modalPrice.textContent = `€${trip.price.toLocaleString('it-IT')}`;
+            modalDescription.textContent = trip.description;
+
+            // Punti salienti
+            modalHighlights.innerHTML = trip.highlights.map(hl => `
+                <li class="flex items-start gap-2.5">
+                    <span class="text-aurea-bronze mt-0.5"><i data-lucide="check" class="w-4 h-4"></i></span>
+                    <span class="text-aurea-charcoal/90 font-light">${hl}</span>
+                </li>
+            `).join('');
+
+            // Mostra il modale e blocca lo scroll
+            itineraryModal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+
+            if (window.lucide) lucide.createIcons();
+        };
+
+        function closeModal() {
+            itineraryModal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+            activeTrip = null;
+        }
+
+        closeModalBtn.addEventListener('click', closeModal);
+
+        // Chiusura al click all'esterno del modale
+        itineraryModal.addEventListener('click', (e) => {
+            if (e.target === itineraryModal) {
+                closeModal();
+            }
+        });
+
+        // Tasto di prenotazione dentro il modale -> compila automaticamente il form
+        modalBookBtn.addEventListener('click', () => {
+            if (activeTrip) {
+                const destInput = document.getElementById('custDest');
+                if (destInput) destInput.value = `${activeTrip.title} (${activeTrip.region})`;
+            }
+            closeModal();
+            const tailorSection = document.getElementById('su-misura');
+            if (tailorSection) {
+                tailorSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        /* ========================================================
+           GESTIONE FORM E NOTIFICHE TOAST (Zero Alert)
+        ======================================================== */
+        function showToast(title, message) {
+            toastTitle.textContent = title;
+            toastMessage.textContent = message;
+            
+            toastNotification.classList.remove('translate-y-32', 'opacity-0');
+            toastNotification.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toastNotification.classList.remove('translate-y-0', 'opacity-100');
+                toastNotification.classList.add('translate-y-32', 'opacity-0');
+            }, 4500);
+        }
+
+        // Invio Form Viaggio su Misura
+        tailorMadeForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('custName').value.trim();
+
+            // Mostra notifica elegante
+            showToast(
+                `Grazie, ${name}`, 
+                "Il tuo Travel Designer dedicato ti contatterà entro 24 ore con una proposta personalizzata."
+            );
+
+            // Resetta il form
+            tailorMadeForm.reset();
+        });
+
+        // Invio Newsletter
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            showToast(
+                "Iscrizione Confermata", 
+                "Riceverai le nostre corrispondenze e anteprime esclusive."
+            );
+            newsletterForm.reset();
+        });
+
+        /* ========================================================
+           MENU MOBILE & INTERAZIONI
+        ======================================================== */
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        /* ========================================================
+           INIZIALIZZAZIONE ALL'AVVIO
+        ======================================================== */
+        window.addEventListener('DOMContentLoaded', () => {
+            // Render iniziale di tutte le destinazioni
+            renderDestinations(travelData);
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        });
+    </script>
+</body>
+</html>
